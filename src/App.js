@@ -1,26 +1,19 @@
 import React, { useState } from "react";
+import { useForm } from "./useForm";
 import "./App.css";
 
-function intialValue() {
-  return 10;
-}
-
 const App = () => {
-  const [count, setCount] = useState(5);
-  const [count2, setCount2] = useState(15);
+  const [values, handleChange] = useForm({ email: "", password: "" });
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setCount(c => c + 1.5);
-          setCount2(c => c + 1);
-        }}
-      >
-        +
-      </button>
-      <div>count 1: {count}</div>
-      <div>count 2: {count2}</div>
+      <input name="email" value={values.email} onChange={handleChange} />
+      <input
+        type="password"
+        name="password"
+        value={values.password}
+        onChange={handleChange}
+      />
     </div>
   );
 };
