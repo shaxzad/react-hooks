@@ -1,20 +1,25 @@
-import React, { useState } from "react";
-import { useForm } from "./useForm";
+import React from "react";
+import Header from "./components/header/header";
+import Balance from "./components/Balance";
+import IncomeExpense from "./components/incomeExpense";
+import TransactionList from "./components/TransactionList";
+import AddTranaction from "./components/AddTranaction.js";
+
+// import { GlobalProvider } from "context/GlobalState";yarn s
+
 import "./App.css";
 
 const App = () => {
-  const [values, handleChange] = useForm({ email: "", password: "" });
-
   return (
-    <div className="App">
-      <input name="email" value={values.email} onChange={handleChange} />
-      <input
-        type="password"
-        name="password"
-        value={values.password}
-        onChange={handleChange}
-      />
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <Balance />
+        <IncomeExpense />
+        <TransactionList />
+        <AddTranaction />
+      </div>
+    </>
   );
 };
 
