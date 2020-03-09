@@ -5,13 +5,13 @@ import IncomeExpense from "./components/incomeExpense";
 import TransactionList from "./components/TransactionList";
 import AddTranaction from "./components/AddTranaction.js";
 
-// import { GlobalProvider } from "context/GlobalState";yarn s
+import { GlobalProvider } from "./context/GlobalState";
 
 import "./App.css";
 
-const App = () => {
+function App() {
   return (
-    <>
+    <GlobalProvider>
       <Header />
       <div className="container">
         <Balance />
@@ -19,8 +19,8 @@ const App = () => {
         <TransactionList />
         <AddTranaction />
       </div>
-    </>
+    </GlobalProvider>
   );
-};
+}
 
 export default App;
